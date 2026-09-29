@@ -192,7 +192,68 @@ html, body, [class*="css"] { font-family: 'Inter', sans-serif !important; }
 }
 .chip-btn button:hover { border-color: #93C5FD !important; color: #1D4ED8 !important; background: #EFF6FF !important; }
 
-.stRadio > label { font-size: 0.85rem !important; }
+/* ─ High Contrast Light Mode Overrides for Radio, Expander, KaTeX & Tables ─ */
+div[data-testid="stRadio"] label,
+div[data-testid="stRadio"] label p,
+div[data-testid="stRadio"] div[role="radiogroup"] label,
+div[data-testid="stRadio"] div[role="radiogroup"] p,
+div[data-testid="stRadio"] div[role="radiogroup"] span {
+    color: #0F172A !important;
+    font-weight: 600 !important;
+    font-size: 0.88rem !important;
+}
+
+[data-testid="stExpander"], details {
+    background-color: #FFFFFF !important;
+    border: 1px solid #CBD5E1 !important;
+    border-radius: 10px !important;
+}
+[data-testid="stExpander"] summary,
+[data-testid="stExpander"] summary span,
+[data-testid="stExpander"] summary p,
+[data-testid="stExpander"] summary div,
+.streamlit-expanderHeader {
+    color: #0F172A !important;
+    font-weight: 700 !important;
+    font-size: 0.9rem !important;
+}
+[data-testid="stExpander"] summary:hover {
+    color: #2563EB !important;
+}
+[data-testid="stExpander"] summary svg, [data-testid="stExpander"] svg {
+    fill: #0F172A !important;
+    color: #0F172A !important;
+}
+div[data-testid="stExpanderDetails"], div[data-testid="stExpanderDetails"] * {
+    color: #1E293B !important;
+}
+
+/* KaTeX Math formulas */
+.stKatex, .stKatex *, .katex, .katex *, .katex-display, .katex-display * {
+    color: #0F172A !important;
+}
+
+/* Tables & Spatial Kernel matrices */
+[data-testid="stTable"], table, th, td, tr, [data-testid="stTable"] * {
+    background-color: #FFFFFF !important;
+    color: #0F172A !important;
+    border-color: #CBD5E1 !important;
+}
+th {
+    background-color: #F1F5F9 !important;
+    color: #0F172A !important;
+    font-weight: 700 !important;
+}
+
+/* Markdown, labels & inputs */
+div[data-testid="stMarkdownContainer"] p, div[data-testid="stMarkdownContainer"] span {
+    color: #1E293B !important;
+}
+div[data-testid="stSlider"] label, div[data-testid="stSelectbox"] label, div[data-testid="stCheckbox"] label span {
+    color: #0F172A !important;
+    font-weight: 600 !important;
+}
+
 hr { border-color: #E2E8F0 !important; margin: 20px 0 !important; }
 
 /* ─ Streamlit default tab fix ─ */
@@ -207,11 +268,6 @@ hr { border-color: #E2E8F0 !important; margin: 20px 0 !important; }
 .stTabs [aria-selected="true"] {
     background: #fff !important; color: #0F172A !important;
     font-weight: 700 !important; box-shadow: 0 1px 4px rgba(0,0,0,.08) !important;
-}
-
-.streamlit-expanderHeader {
-    font-size: 0.84rem !important; font-weight: 600 !important;
-    color: #475569 !important;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -488,7 +544,7 @@ for col, (num, name, algo, key) in zip(t_cols, TECHNIQUES):
                 st.session_state.active_tech = key
                 st.session_state.processed_img = None
             st.rerun()
-        algo_style = "color:#2563EB;font-weight:700;" if selected else "color:#94A3B8;"
+        algo_style = "color:#2563EB;font-weight:700;" if selected else "color:#475569;font-weight:600;"
         sel_mark   = "● " if selected else ""
         st.markdown(f"<p style='text-align:center;font-size:0.72rem;margin-top:-4px;{algo_style}'>{sel_mark}{algo}</p>",
                     unsafe_allow_html=True)
