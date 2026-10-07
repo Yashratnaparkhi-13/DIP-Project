@@ -34,7 +34,7 @@ html, body, [class*="css"] { font-family: 'Inter', sans-serif !important; }
 .stApp { background: #F0F4F8; }
 #MainMenu, footer, header { visibility: hidden; }
 [data-testid="collapsedControl"] { display: none; }
-
+## dip
 /* ─ Top bar ─ */
 .topbar {
     background: #fff;
