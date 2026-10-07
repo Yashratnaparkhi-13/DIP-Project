@@ -60,7 +60,7 @@ html, body, [class*="css"] { font-family: 'Inter', sans-serif !important; }
 }
 .nav-pill:hover { color: #2563EB; }
 .nav-pill.active { color: #2563EB; border-bottom-color: #2563EB; }
-
+## Hi aditi
 /* ─ Hero ─ */
 .hero {
     background: #fff; border-bottom: 1px solid #E2E8F0;
